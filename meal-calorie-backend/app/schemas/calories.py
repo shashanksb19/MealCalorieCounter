@@ -49,6 +49,7 @@ class CalorieResponse(BaseModel):
     servings: float
     calories_per_serving: float
     total_calories: float
+  
     macros_per_serving: Optional[Macros] = None
     total_macros: Optional[Macros] = None
     source: str

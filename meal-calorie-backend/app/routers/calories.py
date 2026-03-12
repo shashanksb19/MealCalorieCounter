@@ -18,13 +18,10 @@ async def get_current_user(
 ):
     token = credentials.credentials
     user_id = security.decode_access_token(token)
-
     service = AuthService(db)
     user = await service.get_user_by_id(user_id)
-
     if not user:
         raise InvalidTokenError()
-
     return user
 
 
@@ -42,5 +39,7 @@ async def get_calories(
         servings=result.servings,
         calories_per_serving=result.calories_per_serving,
         total_calories=result.total_calories,
+        macros_per_serving=result.macros_per_serving,
+        total_macros=result.total_macros,
         source=result.source
     )
