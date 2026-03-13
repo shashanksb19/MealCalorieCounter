@@ -258,7 +258,7 @@ https://fdc.nal.usda.gov/api-key-signup.html
 
 ## 📦 Deployment
 
-- **Backend** → [Render](https://render.com)
+- **Backend** → [Render](https://meal-calorie-counter.vercel.app)
 - **Frontend** → [Vercel](https://vercel.com)
 
 ---
