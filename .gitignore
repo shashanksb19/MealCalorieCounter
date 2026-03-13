@@ -1,0 +1,13 @@
+
+meal-calorie-backend/.env
+meal-calorie-backend/venv/
+meal-calorie-backend/__pycache__/
+meal-calorie-backend/**/__pycache__/
+meal-calorie-backend/**/*.pyc
+
+meal-calorie-frontend/node_modules/
+meal-calorie-frontend/.next/
+meal-calorie-frontend/.env.local
+
+.DS_Store
+node_modules/
