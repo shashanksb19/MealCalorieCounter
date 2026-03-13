@@ -78,7 +78,7 @@ function AuthForm({ mode }: AuthFormProps) {
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 shadow-lg"
             style={{ background: "linear-gradient(135deg, #667eea, #f5576c)" }}
           >
-            <span className="text-3xl">🥗 Calorie Tracker</span>
+            <span className="text-3xl">🥗</span>
           </div>
           <h1 className="text-2xl font-bold text-gray-900">
             {mode === "register" ? "Create Account" : "Welcome Back"}
