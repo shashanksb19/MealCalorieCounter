@@ -12,7 +12,11 @@ A full-stack meal nutrition tracker that calculates calories and macronutrients 
 
 ## 📸 Screenshots
 
-> Add screenshots after deployment
+### Calorie Calculator
+![Calorie Calculator](meal-calorie-frontend/public/Screenshot_Dashboard.png)
+
+### SignUp
+![Dashboard](meal-calorie-frontend/public/Screenshot_SignUp.png)
 
 ---
 
