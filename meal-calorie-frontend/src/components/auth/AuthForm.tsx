@@ -8,9 +8,7 @@ import { registerSchema, loginSchema, RegisterFormData, LoginFormData } from "@/
 import { api } from "@/lib/api"
 import { useAuthStore } from "@/stores/index"
 import { ApiError } from "@/types/index"
-import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 
 interface AuthFormProps {
@@ -57,9 +55,10 @@ function AuthForm({ mode }: AuthFormProps) {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden"
+    <div
+      className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden"
       style={{
-        background: "linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #fda085 100%)"
+        background: "linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #fda085 100%)",
       }}
     >
       {/* Decorative blobs */}
@@ -67,23 +66,23 @@ function AuthForm({ mode }: AuthFormProps) {
         style={{ background: "radial-gradient(circle, #a78bfa, transparent)" }} />
       <div className="absolute bottom-[-80px] right-[-80px] w-96 h-96 rounded-full opacity-30"
         style={{ background: "radial-gradient(circle, #fb7185, transparent)" }} />
-      <div className="absolute top-1/2 left-[-60px] w-48 h-48 rounded-full opacity-20"
-        style={{ background: "radial-gradient(circle, #34d399, transparent)" }} />
 
       {/* Card */}
-      <div className="relative w-full max-w-md bg-white/90 backdrop-blur-md rounded-3xl shadow-2xl p-8 border border-white/50">
-
-        {/* Logo + Title */}
+      <div className="relative w-full max-w-md rounded-3xl shadow-2xl p-8"
+        style={{ backgroundColor: "rgba(255,255,255,0.92)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.5)" }}
+      >
+        {/* Logo */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 shadow-lg"
+          <div
+            className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 shadow-lg"
             style={{ background: "linear-gradient(135deg, #667eea, #f5576c)" }}
           >
             <span className="text-3xl">🥗</span>
           </div>
-          <h1 className="text-2xl font-bold text-gray-900">
+          <h1 className="text-2xl font-bold" style={{ color: "#111827" }}>
             {mode === "register" ? "Create Account" : "Welcome Back"}
           </h1>
-          <p className="text-sm text-gray-500 mt-1">
+          <p className="text-sm mt-1" style={{ color: "#6b7280" }}>
             {mode === "register"
               ? "Start tracking your nutrition today"
               : "Sign in to your CalorieTracker"}
@@ -100,57 +99,69 @@ function AuthForm({ mode }: AuthFormProps) {
           {mode === "register" && (
             <div className="grid grid-cols-2 gap-3">
               <div className="space-y-1">
-                <Label htmlFor="first_name" className="text-gray-700 text-sm font-medium">First Name</Label>
+                <label htmlFor="first_name" className="text-sm font-medium block" style={{ color: "#374151" }}>
+                  First Name
+                </label>
                 <Input
                   id="first_name"
                   placeholder="John"
-                  className="bg-white border-gray-200 focus:border-purple-400 rounded-xl"
+                  className="rounded-xl border-gray-200"
+                  style={{ backgroundColor: "white", color: "#111827" }}
                   {...register("first_name" as keyof FormData)}
                 />
                 {"first_name" in errors && errors.first_name && (
-                  <p className="text-xs text-red-500">{errors.first_name.message}</p>
+                  <p className="text-xs" style={{ color: "#ef4444" }}>{errors.first_name.message}</p>
                 )}
               </div>
               <div className="space-y-1">
-                <Label htmlFor="last_name" className="text-gray-700 text-sm font-medium">Last Name</Label>
+                <label htmlFor="last_name" className="text-sm font-medium block" style={{ color: "#374151" }}>
+                  Last Name
+                </label>
                 <Input
                   id="last_name"
                   placeholder="Doe"
-                  className="bg-white border-gray-200 focus:border-purple-400 rounded-xl"
+                  className="rounded-xl border-gray-200"
+                  style={{ backgroundColor: "white", color: "#111827" }}
                   {...register("last_name" as keyof FormData)}
                 />
                 {"last_name" in errors && errors.last_name && (
-                  <p className="text-xs text-red-500">{errors.last_name.message}</p>
+                  <p className="text-xs" style={{ color: "#ef4444" }}>{errors.last_name.message}</p>
                 )}
               </div>
             </div>
           )}
 
           <div className="space-y-1">
-            <Label htmlFor="email" className="text-gray-700 text-sm font-medium">Email</Label>
+            <label htmlFor="email" className="text-sm font-medium block" style={{ color: "#374151" }}>
+              Email
+            </label>
             <Input
               id="email"
               type="email"
               placeholder="john@example.com"
-              className="bg-white border-gray-200 focus:border-purple-400 rounded-xl"
+              className="rounded-xl border-gray-200"
+              style={{ backgroundColor: "white", color: "#111827" }}
               {...register("email")}
             />
             {errors.email && (
-              <p className="text-xs text-red-500">{errors.email.message}</p>
+              <p className="text-xs" style={{ color: "#ef4444" }}>{errors.email.message}</p>
             )}
           </div>
 
           <div className="space-y-1">
-            <Label htmlFor="password" className="text-gray-700 text-sm font-medium">Password</Label>
+            <label htmlFor="password" className="text-sm font-medium block" style={{ color: "#374151" }}>
+              Password
+            </label>
             <Input
               id="password"
               type="password"
               placeholder="••••••••"
-              className="bg-white border-gray-200 focus:border-purple-400 rounded-xl"
+              className="rounded-xl border-gray-200"
+              style={{ backgroundColor: "white", color: "#111827" }}
               {...register("password")}
             />
             {errors.password && (
-              <p className="text-xs text-red-500">{errors.password.message}</p>
+              <p className="text-xs" style={{ color: "#ef4444" }}>{errors.password.message}</p>
             )}
           </div>
 
@@ -168,18 +179,18 @@ function AuthForm({ mode }: AuthFormProps) {
           </button>
         </form>
 
-        <p className="text-center text-sm text-gray-500 mt-6">
+        <p className="text-center text-sm mt-6" style={{ color: "#6b7280" }}>
           {mode === "register" ? (
             <>
               Already have an account?{" "}
-              <a href="/login" className="font-semibold text-purple-600 hover:underline">
+              <a href="/login" className="font-semibold hover:underline" style={{ color: "#7c3aed" }}>
                 Sign in
               </a>
             </>
           ) : (
             <>
               Don&apos;t have an account?{" "}
-              <a href="/register" className="font-semibold text-purple-600 hover:underline">
+              <a href="/register" className="font-semibold hover:underline" style={{ color: "#7c3aed" }}>
                 Create one
               </a>
             </>
